@@ -5,7 +5,8 @@ import { Tab } from '@headlessui/react'
 import Link from 'next/link'
 
 import MintingModal from '../components/MintingModal'
-import peloNft from '../utils/peloNFT.json';
+import PeloNFT from '../utils/PeloNFT.json'
+
 
 const OPENSEA_LINK = 'https://testnets.opensea.io/collection/pelonft-v4';
 const TOTAL_MINT_COUNT = 50;
@@ -114,7 +115,7 @@ export default function Mint() {
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, peloNft.abi, signer);
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, PeloNFT.abi, signer);
 
         connectedContract.on("NewPeloNFTMinted", (from, tokenId) => {
           console.log(from, tokenId.toNumber())
