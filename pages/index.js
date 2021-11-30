@@ -145,7 +145,7 @@ export default function Mint() {
         const signer = provider.getSigner();
         const connectedContract = new ethers.Contract(
           CONTRACT_ADDRESS,
-          peloNft.abi,
+          PeloNFT.abi,
           signer
         );
 
@@ -168,7 +168,7 @@ export default function Mint() {
         if (ethereum) {
           const provider = new ethers.providers.Web3Provider(ethereum);
           const signer = provider.getSigner();
-          const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, peloNft.abi, signer);
+          const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, PeloNFT.abi, signer);
   
           console.log("Going to pop wallet now to pay gas...")
           let nftTxn = await connectedContract.makeAPeloNFT();
